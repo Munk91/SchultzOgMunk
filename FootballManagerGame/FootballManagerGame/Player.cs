@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,40 +15,39 @@ namespace FootballManagerGame
         private double _value;
         private bool _active;
 
-        public Player(string name, int age, string club, double value, bool active)
+        public Player(int age, string club, double value, bool active)
         {
-            Name = name;
+            _name = GenerateName();
             Age = age;
             Club = club;
             Value = value;
             Active = active;
         }
 
-        private string Name
+        public string Name
         {
             get { return _name; }
-            set { _name = value; }
         }
 
-        private string Club
+        public string Club
         {
             get { return _club; }
             set { _club = value; }
         }
 
-        private double Value
+        public double Value
         {
             get { return _value; }
             set { _value = value; }
         }
 
-        private int Age
+        public int Age
         {
             get { return _age; }
             set { _age = value; }
         }
 
-        private bool Active
+        public bool Active
         {
             get { return _active; }
             set { _active = value; }
@@ -55,7 +55,16 @@ namespace FootballManagerGame
 
         private string GenerateName()
         {
-            return "fisk";
+            List<string> firstNames = new List<string>(File.ReadAllLines("firstNames.txt"));
+            List<string> secondNames = new List<string>(File.ReadAllLines("secondNames.txt"));
+            Random rand = new Random();
+
+            return firstNames[rand.Next(0, firstNames.Count)] + " " + secondNames[rand.Next(0, secondNames.Count)];
+        }
+
+        public override string ToString()
+        {
+            return "Name: " + Name;
         }
     }
 }

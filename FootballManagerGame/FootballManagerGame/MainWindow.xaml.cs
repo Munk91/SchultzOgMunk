@@ -26,15 +26,6 @@ namespace FootballManagerGame
             InitializeComponent();
         }
 
-        private string generateName()
-        {
-            List<string> firstNames = new List<string>(File.ReadAllLines("firstNames.txt"));
-            List<string> secondNames = new List<string>(File.ReadAllLines("secondNames.txt"));
-            Random rand = new Random();
-
-            return firstNames[rand.Next(0, firstNames.Count)] + " " + secondNames[rand.Next(0, secondNames.Count)];
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             generateTeam();
@@ -44,7 +35,9 @@ namespace FootballManagerGame
         {
             for (int i = 0; i < 20; i++)
             {
-                Player player = new Player(generateName(), 0, clubnameTextBox.Text, 0d, true);
+                Player player = new Player(0, clubnameTextBox.Text, 0d, true);
+                //player.Name = "lars";
+                player.Age = 2;
                 teamTextBlock.Text += player.ToString() + "\n";
             }
         }
