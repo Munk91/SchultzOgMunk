@@ -23,10 +23,39 @@ namespace FootballManagerGame
             Active = active;
         }
 
-        string Name { get; set; }
-        string Club { get; set; }
-        double Value { get; set; }
-        int Age { get; set; }
-        bool Active { get; set; }
+        private string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        private string Club
+        {
+            get { return _club; }
+            set { _club = value; }
+        }
+
+        private double Value
+        {
+            get { return _value; }
+            set { _value = value; }
+        }
+
+        private int Age
+        {
+            get { return _age; }
+            set { _age = value; }
+        }
+
+        private bool Active
+        {
+            get { return _active; }
+            set { _active = value; }
+        }
+
+        private string GenerateName()
+        {
+            return "fisk";
+        }
     }
 }
