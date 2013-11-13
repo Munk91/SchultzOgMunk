@@ -21,6 +21,7 @@ namespace FootballManagerGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Player> playerList = new List<Player>();
         public MainWindow()
         {
             InitializeComponent();
@@ -29,16 +30,33 @@ namespace FootballManagerGame
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             generateTeam();
+            teamListBox.ItemsSource = playerList;
         }
 
         private void generateTeam()
         {
             for (int i = 0; i < 20; i++)
             {
-                Player player = new Player(0, clubnameTextBox.Text, 0d, true);
-                //player.Name = "lars";
-                player.Age = 2;
-                teamTextBlock.Text += player.ToString() + "\n";
+                if (i < 4)
+                {
+                    Player player = new Player(RNG.rand.Next(17, 21), clubnameTextBox.Text, 0d, true);
+                    playerList.Add(player);
+                }
+                else if (i < 11)
+                {
+                    Player player = new Player(RNG.rand.Next(21, 25), clubnameTextBox.Text, 0d, true);
+                    playerList.Add(player);
+                }
+                else if (i < 17)
+                {
+                    Player player = new Player(RNG.rand.Next(25, 29), clubnameTextBox.Text, 0d, true);
+                    playerList.Add(player);
+                }
+                else if (i < 20)
+                {
+                    Player player = new Player(RNG.rand.Next(29, 31), clubnameTextBox.Text, 0d, true);
+                    playerList.Add(player);
+                }
             }
         }
     }

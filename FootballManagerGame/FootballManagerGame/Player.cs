@@ -57,14 +57,13 @@ namespace FootballManagerGame
         {
             List<string> firstNames = new List<string>(File.ReadAllLines("firstNames.txt"));
             List<string> secondNames = new List<string>(File.ReadAllLines("secondNames.txt"));
-            Random rand = new Random();
 
-            return firstNames[rand.Next(0, firstNames.Count)] + " " + secondNames[rand.Next(0, secondNames.Count)];
+            return firstNames[RNG.rand.Next(0, firstNames.Count)] + " " + secondNames[RNG.rand.Next(0, secondNames.Count)];
         }
 
         public override string ToString()
         {
-            return "Name: " + Name;
+            return "Name: " + Name + "\n" + "Age: " + Age;
         }
     }
 }
