@@ -7,13 +7,20 @@ using System.Threading.Tasks;
 
 namespace FootballManagerGame
 {
-    public class Player
+    public class Player 
     {
+        #region Fields
+
         private string _name;
         private string _club;
         private int _age;
         private double _value;
         private bool _active;
+        Skills skills = new Skills();
+
+        #endregion
+
+        #region Constructors
 
         public Player(int age, string club, double value, bool active)
         {
@@ -22,7 +29,20 @@ namespace FootballManagerGame
             Club = club;
             Value = value;
             Active = active;
+
+            List<int> skillList = new List<int>();
+            skillList = skills.skillGenerator(age);
+
+            skills.Attacking = skillList[0];
+            skills.Midfielding = skillList[1];
+            skills.Defending = skillList[2];
+            skills.Goalkeeping = skillList[3];
+
         }
+
+        #endregion
+
+        #region Properties
 
         public string Name
         {
@@ -53,6 +73,10 @@ namespace FootballManagerGame
             set { _active = value; }
         }
 
+        #endregion
+
+        #region Private Methods
+
         private string GenerateName()
         {
             List<string> firstNames = new List<string>(File.ReadAllLines("firstNames.txt"));
@@ -61,9 +85,17 @@ namespace FootballManagerGame
             return firstNames[RNG.rand.Next(0, firstNames.Count)] + " " + secondNames[RNG.rand.Next(0, secondNames.Count)];
         }
 
+        #endregion
+
+        #region Public Methods
+
         public override string ToString()
         {
-            return "Name: " + Name + "\n" + "Age: " + Age;
+            return "Name: " + Name + "\n" + "Age: " + Age + "\n" +
+                "Attacking: " + skills.Attacking + " Midfielding: " + skills.Midfielding + "\n" +
+                "Defending: " + skills.Defending + " Goalkeeping: " + skills.Goalkeeping + "\n";
         }
+
+        #endregion
     }
 }
