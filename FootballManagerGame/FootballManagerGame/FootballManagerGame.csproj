@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Club.cs" />
     <Compile Include="RNG.cs" />
     <Compile Include="Skills.cs" />
     <Page Include="MainWindow.xaml">

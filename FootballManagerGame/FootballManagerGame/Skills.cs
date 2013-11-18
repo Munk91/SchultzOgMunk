@@ -27,7 +27,7 @@ namespace FootballManagerGame
 
         public Skills(int attacking, int midfielding, int defending, int goalkeeping)
         {
-            this.Attacking = attacking; //20 niveuaer
+            this.Attacking = attacking;
             this.Midfielding = midfielding;
             this.Defending = defending;
             this.Goalkeeping = goalkeeping;

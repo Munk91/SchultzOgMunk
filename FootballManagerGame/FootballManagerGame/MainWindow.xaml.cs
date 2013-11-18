@@ -27,10 +27,10 @@ namespace FootballManagerGame
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GenerateTeamButton_Click(object sender, RoutedEventArgs e)
         {
             generateTeam();
-            teamListBox.ItemsSource = playerList;
+            clubsListBox.ItemsSource = playerList;
         }
 
         private void generateTeam()
@@ -39,22 +39,22 @@ namespace FootballManagerGame
             {
                 if (i < 4)
                 {
-                    Player player = new Player(RNG.rand.Next(17, 21), clubnameTextBox.Text, 0d, true);
+                    Player player = new Player(RNG.rand.Next(17, 21), clubNameTextBox.Text, 0d, true);
                     playerList.Add(player);
                 }
                 else if (i < 11)
                 {
-                    Player player = new Player(RNG.rand.Next(21, 25), clubnameTextBox.Text, 0d, true);
+                    Player player = new Player(RNG.rand.Next(21, 25), clubNameTextBox.Text, 0d, true);
                     playerList.Add(player);
                 }
                 else if (i < 17)
                 {
-                    Player player = new Player(RNG.rand.Next(25, 29), clubnameTextBox.Text, 0d, true);
+                    Player player = new Player(RNG.rand.Next(25, 29), clubNameTextBox.Text, 0d, true);
                     playerList.Add(player);
                 }
                 else if (i < 20)
                 {
-                    Player player = new Player(RNG.rand.Next(29, 31), clubnameTextBox.Text, 0d, true);
+                    Player player = new Player(RNG.rand.Next(29, 31), clubNameTextBox.Text, 0d, true);
                     playerList.Add(player);
                 }
             }
