@@ -21,20 +21,32 @@ namespace FootballManagerGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Player> playerList = new List<Player>();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void GenerateTeamButton_Click(object sender, RoutedEventArgs e)
+        private void generateClubButton_Click(object sender, RoutedEventArgs e)
         {
-            generateTeam();
-            clubsListBox.ItemsSource = playerList;
+            Club club = generateClub();
+            LobbyWindow lobby = new LobbyWindow(club);
+            lobby.Show();
+            this.Close();
         }
 
-        private void generateTeam()
+        private Club generateClub()
         {
+            List<Player> squad = generateSquad();
+            string clubName = clubNameTextBox.Text;
+            string managerName = managerNameTextBox.Text;
+
+            Club newClub = new Club(squad, clubName, managerName, squad.Count);
+            return newClub;
+        }
+
+        private List<Player> generateSquad()
+        {
+            List<Player> playerList = new List<Player>();
             for (int i = 0; i < 20; i++)
             {
                 if (i < 4)
@@ -58,6 +70,7 @@ namespace FootballManagerGame
                     playerList.Add(player);
                 }
             }
+            return playerList;
         }
     }
 }

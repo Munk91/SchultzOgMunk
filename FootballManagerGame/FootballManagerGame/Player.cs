@@ -79,8 +79,8 @@ namespace FootballManagerGame
 
         private string GenerateName()
         {
-            List<string> firstNames = new List<string>(File.ReadAllLines("firstNames.txt"));
-            List<string> secondNames = new List<string>(File.ReadAllLines("secondNames.txt"));
+            List<string> firstNames = new List<string>(File.ReadAllLines("txtFiles\\firstNames.txt"));
+            List<string> secondNames = new List<string>(File.ReadAllLines("txtFiles\\secondNames.txt"));
 
             return firstNames[RNG.rand.Next(0, firstNames.Count)] + " " + secondNames[RNG.rand.Next(0, secondNames.Count)];
         }
