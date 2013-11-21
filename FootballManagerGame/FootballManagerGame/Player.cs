@@ -17,6 +17,7 @@ namespace FootballManagerGame
         private double _value;
         private bool _active;
         Skills skills = new Skills();
+        //JHSDLHDLVHVDEAY
 
         #endregion
 
